@@ -4,6 +4,7 @@ Application des méthodes de la Machine Learning Specialization (DeepLearning.AI
 
 ## Notebooks
 - `01-regression-simple.ipynb` — régression linéaire à une variable (masse → CO₂), sur les motorisations diesel et essence
+...
 
 ## Données
 `data/vehicules.csv` — ADEME 2014, ~20 900 versions de véhicules, versionné dans le dépôt pour que les résultats restent reproductibles. Source: [data.gouv.fr](https://www.data.gouv.fr/datasets/emissions-de-co2-et-de-polluants-des-vehicules-commercialises-en-france), Licence Ouverte / Etalab.
