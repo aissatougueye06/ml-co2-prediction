@@ -4,3 +4,4 @@ __pycache__/
 .ipynb_checkpoints/
 .DS_Store
 puissance.ipynb
+02-regression-multiple-squelette.ipynb
