@@ -9,7 +9,7 @@ Application des méthodes de la Machine Learning Specialization (DeepLearning.AI
 
 ## Ce que donne le modèle
 
-Sur les essences, l'erreur moyenne est de **15,5 g/km sur le jeu de test**, contre 42,9 g/km pour une prédiction constante — l'erreur est divisée par 2,8. Elle reste très inégale selon le segment : 11,7 g/km sous 75 kW, 30,0 g/km au-delà de 300 kW.
+Sur les essences, l'erreur moyenne est de **15,5 g/km sur le jeu de test**, contre 42,9 g/km pour une prédiction constante — l'erreur est divisée par 2,8. Elle reste très inégale selon le segment : 11,5 g/km sous 75 kW, 31,7 g/km au-delà de 300 kW. Ces chiffres sont mesurés sur un découpage unique et favorable ; le rapport au modèle naïf, lui, est stable d'un tirage à l'autre.
 
 Trois résultats qui ne se voyaient pas dans l'analyse exploratoire :
 
