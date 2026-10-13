@@ -21,10 +21,11 @@ GARDEES = [
     "masse_ordma_min",
     "puiss_max",
     "co2_mixte",
+    "energ"
 ]
  
 # Colonnes sans lesquelles une ligne est inutilisable.
-ESSENTIELLES = ["masse_ordma_min", "puiss_max", "co2_mixte"]
+ESSENTIELLES = ["masse_ordma_min", "puiss_max", "co2_mixte", "typ_boite_nb_rapp"]
  
 # Colonnes dérivées de la cible : exclues de toute modélisation.
 FUITES = [
@@ -39,6 +40,7 @@ FUITES = [
     "ptcl",
 ]
 
+ENERGIES = ["GO", "ES"]
 
 def charger(chemin: str | Path) -> pd.DataFrame:
     """Lit le CSV ADEME et nettoie les espaces de fin des colonnes texte.
@@ -60,18 +62,15 @@ def lignes_exploitables(df: pd.DataFrame) -> pd.DataFrame:
     dédoublonnées, donc une ligne n'est pas encore un véhicule.
     """
  
-    return df[GARDEES].dropna(subset=ESSENTIELLES)
+    return df[df["energ"].isin(ENERGIES)][GARDEES].dropna(subset=ESSENTIELLES)
 
 
-def preparer(df: pd.DataFrame, code_energ: str) -> pd.DataFrame:
+def preparer(df: pd.DataFrame) -> pd.DataFrame:
     """Filtre sur une motorisation, supprime les NaN et les doublons d'homologation.
  
     Une ligne du fichier est une variante d'homologation, pas un véhicule : un
     modèle déclaré en 18 versions pèserait 18 fois plus lourd dans la somme des
     carrés. Le dédoublonnage sur `CLES` ramène le fichier à des véhicules réels.
- 
-    Ajoute `puiss_max²` pour le terme quadratique.
     """
-    sous = lignes_exploitables(df).drop_duplicates(subset=CLES).copy()
-    sous["puiss_max²"] = sous["puiss_max"] ** 2
-    return sous
+
+    return lignes_exploitables(df).drop_duplicates(subset=CLES)
