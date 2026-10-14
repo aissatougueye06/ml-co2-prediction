@@ -40,7 +40,9 @@ FUITES = [
     "ptcl",
 ]
 
+# Motorisations conservées dans le jeu de travail
 ENERGIES = ["GO", "ES"]
+
 
 def charger(chemin: str | Path) -> pd.DataFrame:
     """Lit le CSV ADEME et nettoie les espaces de fin des colonnes texte.
@@ -56,7 +58,7 @@ def charger(chemin: str | Path) -> pd.DataFrame:
 
 
 def lignes_exploitables(df: pd.DataFrame) -> pd.DataFrame:
-    """Lignes d'une motorisation dont les colonnes essentielles sont renseignées.
+    """Lignes de motorisation 'GO' et 'ES' dont les colonnes essentielles sont renseignées.
  
     Étape intermédiaire : les variantes d'homologation ne sont pas encore
     dédoublonnées, donc une ligne n'est pas encore un véhicule.
@@ -66,7 +68,7 @@ def lignes_exploitables(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def preparer(df: pd.DataFrame) -> pd.DataFrame:
-    """Filtre sur une motorisation, supprime les NaN et les doublons d'homologation.
+    """Filtre sur deux motorisations ('GO' et 'ES'), supprime les NaN et les doublons d'homologation.
  
     Une ligne du fichier est une variante d'homologation, pas un véhicule : un
     modèle déclaré en 18 versions pèserait 18 fois plus lourd dans la somme des
