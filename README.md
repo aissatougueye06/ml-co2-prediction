@@ -11,7 +11,7 @@ Application des méthodes de la Machine Learning Specialization (DeepLearning.AI
 - **`03-classification.ipynb`** — le véhicule dépasse-t-il le seuil du malus écologique (131 g/km) ? Deux approches comparées sur les diesels et les essences : classer directement (régression logistique), ou prédire le CO₂ par régression multiple puis appliquer le seuil. Pipelines scikit-learn (`ColumnTransformer`, one-hot, terme quadratique, normalisation), découpage commun stratifié, métriques de classification, analyse des erreurs et robustesse sur plusieurs découpages.
 - **`04-arbres-boosting.ipynb`** — arbre de décision, forêt aléatoire et boosting (HistGradientBoosting, XGBoost) sur les essences, comparés à la régression utilisée dans `co2-api`. Découpage par configuration (`GroupKFold`, `GroupShuffleSplit`) pour neutraliser les véhicules jumeaux, recherche d'hyperparamètres, comparaison appariée pli par pli, erreur par tranche de puissance et limites d'extrapolation des arbres.
 
-Les fonctions de chargement et de préparation des données (`charger`, `preparer`) sont dans `preparation.py` (notebooks 01 à 03) et `prepa_arbres_boosting.py` (notebook 04).
+Les fonctions de chargement et de préparation des données (`charger`, `preparer`) sont dans `preparation.py`, copie de celle de co2-api.
 
 
 ## Ce que donnent les modèles
